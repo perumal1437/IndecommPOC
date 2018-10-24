@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PropertiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAddress">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="propertyid" Type="Int32" Nullable="false" />
+    <Property Name="address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="district" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="zip" Type="Int32" />
+    <Property Name="zipplus4" Type="Int32" />
+    <NavigationProperty Name="tblProperty" Relationship="Self.FK__tblAddres__prope__1273C1CD" FromRole="tblAddress" ToRole="tblProperties" />
+  </EntityType>
+  <EntityType Name="tblProperty">
+    <Key>
+      <PropertyRef Name="propertyid" />
+    </Key>
+    <Property Name="propertyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yearbuilt" Type="Int32" />
+    <Property Name="listprice" Type="Int32" />
+    <Property Name="monthlyrent" Type="Int32" />
+    <Property Name="grossyield" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblAddresses" Relationship="Self.FK__tblAddres__prope__1273C1CD" FromRole="tblProperties" ToRole="tblAddress" />
+  </EntityType>
+  <Association Name="FK__tblAddres__prope__1273C1CD">
+    <End Role="tblProperties" Type="Self.tblProperty" Multiplicity="1" />
+    <End Role="tblAddress" Type="Self.tblAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProperties">
+        <PropertyRef Name="propertyid" />
+      </Principal>
+      <Dependent Role="tblAddress">
+        <PropertyRef Name="propertyid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PropertiesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAddresses" EntityType="Self.tblAddress" />
+    <EntitySet Name="tblProperties" EntityType="Self.tblProperty" />
+    <AssociationSet Name="FK__tblAddres__prope__1273C1CD" Association="Self.FK__tblAddres__prope__1273C1CD">
+      <End Role="tblProperties" EntitySet="tblProperties" />
+      <End Role="tblAddress" EntitySet="tblAddresses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

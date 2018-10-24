@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PropertiesModelStoreContainer" CdmEntityContainer="PropertiesEntities">
+    <EntitySetMapping Name="Properties">
+      <EntityTypeMapping TypeName="PropertiesModel.Property">
+        <MappingFragment StoreEntitySet="tblProperties">
+          <ScalarProperty Name="propertyid" ColumnName="propertyid" />
+          <ScalarProperty Name="yearbuilt" ColumnName="yearbuilt" />
+          <ScalarProperty Name="listprice" ColumnName="listprice" />
+          <ScalarProperty Name="monthlyrent" ColumnName="monthlyrent" />
+          <ScalarProperty Name="grossyield" ColumnName="grossyield" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="zipplus4" ColumnName="zipplus4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

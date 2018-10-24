@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PropertiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="propertyid" />
+    </Key>
+    <Property Name="propertyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yearbuilt" Type="Int32" />
+    <Property Name="listprice" Type="Int32" />
+    <Property Name="monthlyrent" Type="Int32" />
+    <Property Name="grossyield" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="address1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="district" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="zip" Type="Int32" />
+    <Property Name="zipplus4" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="PropertiesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Properties" EntityType="PropertiesModel.Property" />
+  </EntityContainer>
+</Schema>
